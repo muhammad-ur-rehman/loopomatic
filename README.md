@@ -14,7 +14,7 @@ This application implements a small slice of an automation platform for handling
 
 ## Design Pattern
 
-Loopomatic keeps things clean by using Service Objects. All the heavy lifting AI classification, rules, external API calls, and multi-step workflows—lives in app/services, so controllers, models, and jobs stay simple and easy to follow.
+Loopomatic keeps things clean by using Service Objects. All the heavy lifting AI classification, rules, external API calls, and multi-step workflows live in `app/services`, so controllers, models, and jobs stay simple and easy to follow.
 
 ## Tech Stack
 
