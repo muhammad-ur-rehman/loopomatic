@@ -281,6 +281,8 @@ Load seed data: `bin/rails db:seed`
 10. **API Documentation**: Add Swagger/OpenAPI documentation
 11. **Logging**: Enhanced logging and monitoring
 12. **Rate Limiting**: Add rate limiting for external API calls
+13. **Test Coverage**: Push toward full coverage on controllers, services, and async jobs to keep regressions in check
+14. **JSONB Schema Validation**: Define JSON structure contracts (e.g., metadata columns) so JSONB payloads stay within expected keys/types
 
 ## Known Limitations
 
