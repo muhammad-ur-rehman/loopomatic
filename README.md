@@ -14,7 +14,7 @@ This application implements a small slice of an automation platform for handling
 
 ## Design Pattern
 
-Loopomatic follows a Service Object (a.k.a. Service Layer) design pattern. All orchestration-heavy, business-specific logic—AI classification, rule evaluation, external API calls, and cross-system coordination—lives inside plain-old Ruby objects under `app/services`. Controllers, models, and jobs stay thin because they delegate to these services, which hide the complexity of multi-step workflows and keep external integration concerns in one place.
+Loopomatic keeps things clean by using Service Objects. All the heavy lifting AI classification, rules, external API calls, and multi-step workflows—lives in app/services, so controllers, models, and jobs stay simple and easy to follow.
 
 ## Tech Stack
 
