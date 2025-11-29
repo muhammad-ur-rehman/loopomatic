@@ -12,6 +12,10 @@ This application implements a small slice of an automation platform for handling
 - **Simple UI**: Basic web interface for creating and viewing return requests
 - **Discontinued Models Module**: Business logic for identifying discontinued vehicle models
 
+## Design Pattern
+
+Loopomatic follows a Service Object (a.k.a. Service Layer) design pattern. All orchestration-heavy, business-specific logic—AI classification, rule evaluation, external API calls, and cross-system coordination—lives inside plain-old Ruby objects under `app/services`. Controllers, models, and jobs stay thin because they delegate to these services, which hide the complexity of multi-step workflows and keep external integration concerns in one place.
+
 ## Tech Stack
 
 - **Rails 8.1.1** with API-friendly controllers plus HTML views

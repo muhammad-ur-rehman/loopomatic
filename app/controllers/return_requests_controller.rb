@@ -1,4 +1,5 @@
 class ReturnRequestsController < ApplicationController
+  include ReturnRequestParams
 
   before_action :set_return_request, only: [:show]
 
