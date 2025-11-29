@@ -1,0 +1,33 @@
+<h2>Return Request Details</h2>
+
+<div>
+  <%= link_to '← Back to All Requests', return_requests_path %>
+</div>
+
+<h3>Basic Information</h3>
+<%= render "detail_table", request: @return_request %>
+
+<h3>AI Classification</h3>
+<% if @return_request.ai_classification.present? %>
+  <div class="json-display">
+    <strong>Category:</strong> <%= @return_request.ai_classification['category'] || @return_request.ai_classification[:category] %><br>
+    <strong>Confidence:</strong> <%= (@return_request.ai_classification['confidence'] || @return_request.ai_classification[:confidence] || 0) * 100 %>%<br>
+    <strong>Tags:</strong> <%= Array(@return_request.ai_classification['tags'] || @return_request.ai_classification[:tags]).join(', ') %>
+  </div>
+<% else %>
+  <p>No AI classification available</p>
+<% end %>
+
+<h3>Metadata</h3>
+<% if @return_request.metadata.present? %>
+  <div class="json-display">
+    <%= JSON.pretty_generate(@return_request.metadata) %>
+  </div>
+<% else %>
+  <p>No metadata available</p>
+<% end %>
+
+<div style="margin-top: 30px;">
+  <%= link_to 'Create Another Request', new_return_request_path, class: 'button' %>
+</div>
+

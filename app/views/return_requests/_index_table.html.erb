@@ -1,0 +1,33 @@
+<% if requests.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer ID</th>
+        <th>Value</th>
+        <th>Reason</th>
+        <th>Decision</th>
+        <th>Resolution</th>
+        <th>Created</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% requests.each do |request| %>
+        <tr>
+          <td><%= request.order_id %></td>
+          <td><%= request.customer_id %></td>
+          <td><%= request.order_value_cents %> <%= request.currency %></td>
+          <td><%= request.reason %></td>
+          <td><strong><%= request.decision || "Pending" %></strong></td>
+          <td><strong><%= request.resolution || "None" %></strong></td>
+          <td><%= request.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= link_to "View", request %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No return requests yet. <%= link_to "Create one", new_return_request_path %> to get started.</p>
+<% end %>
+

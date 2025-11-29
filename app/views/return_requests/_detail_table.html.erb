@@ -1,0 +1,35 @@
+<table>
+  <tr>
+    <th>Order ID</th>
+    <td><%= request.order_id %></td>
+  </tr>
+  <tr>
+    <th>Customer ID</th>
+    <td><%= request.customer_id %></td>
+  </tr>
+  <tr>
+    <th>Order Value</th>
+    <td><%= request.order_value_cents %> <%= request.currency %></td>
+  </tr>
+  <tr>
+    <th>Reason</th>
+    <td><%= request.reason %></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td><%= request.description %></td>
+  </tr>
+  <tr>
+    <th>Decision</th>
+    <td><strong><%= request.decision || "Pending" %></strong></td>
+  </tr>
+  <tr>
+    <th>Resolution</th>
+    <td><strong><%= request.resolution || "None" %></strong></td>
+  </tr>
+  <tr>
+    <th>Created At</th>
+    <td><%= request.created_at %></td>
+  </tr>
+</table>
+

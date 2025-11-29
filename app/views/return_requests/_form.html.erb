@@ -1,0 +1,60 @@
+<%= form_with model: return_request, local: true do |form| %>
+  <% if return_request.errors.any? %>
+    <div class="error">
+      <h3><%= pluralize(return_request.errors.count, "error") %> prevented this record from being saved:</h3>
+      <ul>
+        <% return_request.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :order_id %>
+    <%= form.text_field :order_id, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.text_field :customer_id, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order_value_cents, "Order Value (cents)" %>
+    <%= form.number_field :order_value_cents, required: true, min: 1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency %>
+    <%= form.select :currency, options_for_select(%w[EUR USD GBP CAD], return_request.currency || "EUR"), {}, { required: true } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reason %>
+    <%= form.select :reason, options_for_select([
+      ["Damaged", "damaged"],
+      ["Too Small", "too_small"],
+      ["Too Large", "too_large"],
+      ["Changed Mind", "changed_mind"],
+      ["Defective", "defective"],
+      ["Other", "other"]
+    ], return_request.reason), {}, { required: true } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, required: true, placeholder: "Describe the reason for return..." %>
+  </div>
+
+  <div class="field">
+    <%= form.label :metadata, "Metadata (JSON, optional)" %>
+    <%= form.text_area :metadata, placeholder: '{"country": "DE", "channel": "online_store"}' %>
+    <small>Optional JSON metadata (e.g., country code, channel)</small>
+  </div>
+
+  <div class="field">
+    <%= form.submit submit_label || "Save" %>
+  </div>
+<% end %>
+

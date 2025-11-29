@@ -1,0 +1,25 @@
+<h2>Rules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Priority</th>
+      <th>Active</th>
+      <th>Conditions</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rules.each do |rule| %>
+      <tr>
+        <td><%= rule.name %></td>
+        <td><%= rule.priority %></td>
+        <td><%= rule.active ? 'Yes' : 'No' %></td>
+        <td><pre><%= JSON.pretty_generate(rule.conditions || {}) %></pre></td>
+        <td><pre><%= JSON.pretty_generate(rule.actions || {}) %></pre></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,8 @@
+<h2>All Return Requests</h2>
+
+<div style="margin: 20px 0;">
+  <%= link_to 'Create New Return Request', new_return_request_path, style: 'background: #28a745; color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none;' %>
+</div>
+
+<%= render "index_table", requests: @return_requests %>
+

@@ -1,0 +1,146 @@
+{
+  "info": {
+    "name": "Loopomatic API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Return Request",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"return_request\": {\n    \"order_id\": \"ORD-1001\",\n    \"customer_id\": \"CUST-42\",\n    \"order_value_cents\": 12999,\n    \"currency\": \"EUR\",\n    \"reason\": \"damaged\",\n    \"description\": \"The cover is broken and the machine is not turning on.\",\n    \"metadata\": {\n      \"country\": \"DE\",\n      \"channel\": \"online_store\"\n    }\n  }\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/return_requests",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "return_requests"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Return Requests",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/return_requests",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "return_requests"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Return Request",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/return_requests/{{return_request_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "return_requests",
+            "{{return_request_id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Rules",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/rules",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "rules"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Vehicle Models",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/integrations/vehicle_models?make=honda&year=2016",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "integrations",
+            "vehicle_models"
+          ],
+          "query": [
+            {
+              "key": "make",
+              "value": "honda"
+            },
+            {
+              "key": "year",
+              "value": "2016"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Discontinued Models",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/integrations/discontinued_models?make=honda&from_year=2011&to_year=2020",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "integrations",
+            "discontinued_models"
+          ],
+          "query": [
+            {
+              "key": "make",
+              "value": "honda"
+            },
+            {
+              "key": "from_year",
+              "value": "2011"
+            },
+            {
+              "key": "to_year",
+              "value": "2020"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "return_request_id",
+      "value": "1"
+    }
+  ]
+}
+
