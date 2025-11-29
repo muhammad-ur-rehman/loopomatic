@@ -1,5 +1,7 @@
 module Services
   class ExternalApiClient
+    COUNTRY_API_BASE = 'https://restcountries.com/v3.1/alpha'.freeze
+
     def self.enrich(return_request)
       new(return_request).enrich
     end
@@ -95,4 +97,3 @@ module Services
     end
   end
 end
-
