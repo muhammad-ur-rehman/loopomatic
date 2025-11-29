@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Return Requests - API and UI
+  # Return Requests API and UI
   resources :return_requests, only: [:index, :show, :new, :create]
 
-  # Integrations - Vehicle Models
+  # IntegrationsVehicle Models
   get '/integrations/vehicle_models', to: 'integrations#vehicle_models'
   get '/integrations/discontinued_models', to: 'integrations#discontinued_models'
 
